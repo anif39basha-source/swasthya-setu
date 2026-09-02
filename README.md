@@ -1,6 +1,6 @@
 # 🏥 SwasthyaSetu - Rural Healthcare Access & Smart Referral Platform
 
-> Smart India Hackathon 2024 Project
+> Smart India Hackathon 2026 Project
 
 A modern, responsive web application connecting rural citizens to government healthcare facilities through a seamless platform.
 
