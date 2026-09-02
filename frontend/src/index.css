@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   SWASTHYASETU - GLOBAL LIGHT HEALTHCARE THEME
+   ========================================================= */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+
+    --ring: 199 89% 48%;
+
+    --radius: 0.625rem;
+
+    --health-primary: 199 89% 48%;
+    --health-secondary: 142 71% 45%;
+    --health-warning: 45 93% 47%;
+    --health-danger: 0 84% 60%;
+    --health-info: 199 89% 48%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #1f2937;
+    font-family:
+      'Inter',
+      'Noto Sans',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #111827;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+}
+
+/* =========================================================
+   HEALTHCARE COMPONENTS
+   ========================================================= */
+
+@layer components {
+
+  .healthcare-card {
+    @apply rounded-xl border bg-white p-6 shadow-sm transition-all;
+  }
+
+  .healthcare-card:hover {
+    @apply shadow-md;
+  }
+
+  .healthcare-card-header {
+    @apply flex flex-col space-y-1.5 pb-4;
+  }
+
+  .healthcare-card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight text-gray-900;
+  }
+
+  .healthcare-card-description {
+    @apply text-sm text-gray-500;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 font-medium text-white transition-colors;
+  }
+
+  .btn-primary:hover {
+    @apply bg-blue-700;
+  }
+
+  .btn-emergency {
+    @apply inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2.5 font-medium text-white transition-colors;
+  }
+
+  .btn-emergency:hover {
+    @apply bg-red-700;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+
+  .status-open {
+    @apply border border-green-200 bg-green-50 text-green-700;
+  }
+
+  .status-limited {
+    @apply border border-yellow-200 bg-yellow-50 text-yellow-700;
+  }
+
+  .status-closed {
+    @apply border border-red-200 bg-red-50 text-red-700;
+  }
+
+  .status-emergency {
+    @apply border border-red-200 bg-red-50 text-red-700;
+  }
+
+  .offline-indicator {
+    @apply fixed left-0 right-0 top-0 z-50 bg-yellow-100 px-4 py-2 text-center text-sm font-medium text-yellow-800;
+  }
+
+  .map-container {
+    @apply w-full overflow-hidden rounded-xl border border-gray-200 bg-gray-50;
+  }
+
+  .voice-input-button {
+    @apply rounded-full bg-blue-50 p-3 text-blue-600 transition-colors;
+  }
+
+  .voice-input-button:hover {
+    @apply bg-blue-100;
+  }
+}
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.6rem;
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.nav-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.nav-link-active {
+  background: #eff6ff !important;
+  color: #2563eb !important;
+  font-weight: 600;
+}
+
+.nav-link-emergency {
+  color: #dc2626 !important;
+}
+
+.nav-link-emergency:hover {
+  background: #fef2f2 !important;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes pulse-emergency {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.pulse-emergency {
+  animation: pulse-emergency 2s infinite;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f3f4f6 25%,
+    #e5e7eb 50%,
+    #f3f4f6 75%
+  );
+
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* =========================================================
+   LEAFLET
+   ========================================================= */
+
+.leaflet-container {
+  font-family: inherit;
+  border-radius: 0.75rem;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast-container {
+  z-index: 9999;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* =========================================================
+   HIGH CONTRAST
+   ========================================================= */
+
+@media (prefers-contrast: high) {
+  :root {
+    --border: 0 0% 0%;
+  }
+
+  .healthcare-card {
+    border-width: 2px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
